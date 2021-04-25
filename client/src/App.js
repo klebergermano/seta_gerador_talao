@@ -1,24 +1,25 @@
 
-import { useEffect, useState } from 'react';
+import {useEffect, useStated} from "react";
 import './assets/css/sass/style.scss';
-import CreateTalao from "./components/CreateTalao";
+import {saveAs} from "file-saver";
+
 
 function App() {
 
-const [msg, setMSG] = useState(null);
+const createPDF = ()=>{
+  
+  fetch('/create-pdf')
+  .then(res => res.blob())
+  .then((blob)=>{
+    saveAs(blob, 'novo_talao.pdf');
+  })
 
-useEffect(()=>{
-  fetch('/api')
-  .then((res)=>res.json())
-  .then((data)=> setMSG(data.message))
 }
 
-  );
-
   return (
-    <div className="container">
-   <p>{!msg ? "Loading..." : msg}</p>
-      <CreateTalao/>
+    <div className="container"> 
+
+    <button onClick={createPDF}>Create PDF</button>
     </div>
   );
 }
