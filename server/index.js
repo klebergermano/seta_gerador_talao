@@ -5,12 +5,33 @@ const generate_pdf = require('./generate_pdf');
 const connection = require('./configDB/connection');
 
 
+app.get('/view_talao', (req,  res )=>{
 
-app.get('/create-pdf', (req, res)=>{
+  let results = new Promise((resolve, reject)=>{
 
-  const result = new Promise((resolve, reject)=>{
+   connection.query('SELECT * FROM vw_talao_info', (err, results)=>{
+      if(err) reject();
+      else resolve(results);
 
-    connection.query("SELECT * FROM vw_folha_pagamento where id_talao = 1", (err, results)=>{
+    })
+
+  });
+
+  results.then((results)=>{
+    res.json(results);
+  
+  });
+
+});
+
+
+
+
+
+app.get('/create-pdf/', (req, res)=>{
+ let id = req.query.id
+  let result = new Promise((resolve, reject)=>{
+    connection.query(`SELECT * FROM vw_folha_pagamento where id_talao = ${id}`, (err, results)=>{
       if(err) reject();
         resolve(results)
       });
@@ -26,11 +47,6 @@ app.get('/create-pdf', (req, res)=>{
     console.log(err)
   });
   
-
-
-
- 
-
 })
 
 

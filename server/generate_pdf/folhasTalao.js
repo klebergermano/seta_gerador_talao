@@ -19,6 +19,8 @@ module.exports = (  n_lanc,
       let f_desconto = desconto.toFixed(2).replace(/\./g, ",");
       let f_valor_total = valor_total.toFixed(2).replace(/\./g, ",");
 
+      let f_RA = "" + RA; //concactenar com aspas para poder conver o RA para string (padStart precisa receber uma string)
+      f_RA = f_RA.padStart(4, "0")
 
 
     return (
@@ -85,7 +87,7 @@ module.exports = (  n_lanc,
           </tr>
           <tr>
             <td colspan="2">
-              <span class="RA_cliente">Via do aluno: RA:${RA}</span>
+              <span class="RA_cliente">Via da escola: RA${f_RA}</span>
             </td>
   
             <td colspan="5">
@@ -148,7 +150,7 @@ module.exports = (  n_lanc,
           </tr>
           <tr>
             <td colspan="4"></td>
-            <td><span class="RA">Via da escola: RA${RA}</span></td>
+            <td><span class="RA">Via do aluno: RA${f_RA}</span></td>
           </tr>
           <tr>
             <td colspan="5" class="ass">

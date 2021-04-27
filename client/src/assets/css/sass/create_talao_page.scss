@@ -1,0 +1,74 @@
+.bg_select_talao {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  max-width: 700px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 40px;
+  overflow: auto;
+#bg_loading{ 
+  display:none;
+  position: absolute;
+  width:100%; 
+  min-height:100vh; 
+  background:#3347;
+  left:0px;
+  top:0px;
+  h3{
+    text-align: center;
+    color:#fff;
+    margin-top: 20%;
+  }
+}
+.displayOn{ display:block}
+.displayOff{display:none !important;}
+
+  #select_talao {
+    padding: 5px;
+    label {
+      padding-right: 10px;
+    }
+    select {
+      padding: 5px;
+    }
+  }
+
+  #salvarPDF {
+    background: rgb(15, 144, 153);
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #666;
+    color: #fff;
+    float: right;
+    margin-top: 20px;
+    cursor:pointer;
+    &:hover{
+        background:#339944;
+    }
+    &:disabled {
+      background: #cccccc;
+    }
+  }
+
+}
+
+#bg_talao_previa{
+  font-family: Arial, Helvetica, sans-serif;
+  .talao_previa{
+    background:#fff; 
+    border:1px solid #ccc; 
+    max-width: 700px;
+    margin: 5px auto;
+    padding:20px;
+    p{
+      color:#033c92;
+    }
+    span{
+      font-weight:bold;
+      color:#444;
+      margin-right:10px;
+    }
+  }
+}
